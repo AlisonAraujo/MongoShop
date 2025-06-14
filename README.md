@@ -10,7 +10,7 @@ Este repositório contém um projeto de gestão e automação de um banco de dad
 ✅ Cálculo de valores<br>
 ✅ Uso de Faker para criar dados realistas<br>
 
-🔧 Futuras Implementações
+🔧 Futuras Implementações<br>
 🔹 Monitoramento de performance do MongoDB 🔹 Segurança e autenticação de acesso 🔹 Backup e restauração de dados 🔹 Automação de tarefas básicas
 
 🛠 Tecnologias utilizadas<br><br>
