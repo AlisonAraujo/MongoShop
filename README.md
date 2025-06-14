@@ -1,4 +1,3 @@
-# MongoShop-
 <h1>MongoShop - Gestão de Banco de Dados MongoDB com Automação e Monitoramento</h1>
 
 📌 Descrição<br>
