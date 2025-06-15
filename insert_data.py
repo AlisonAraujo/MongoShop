@@ -44,23 +44,15 @@ inserting_product_data = products.insert_many(product_data)
 ########################################################################
 
 all_product_id = [doc["_id"] for doc in products.find({}, {"_id": 1})]
-id_product = random.choice(all_product_id)
-product_name = [doc["name"] for doc in products.find({"_id": id_product}, {"name": 1, "_id": 0})]
-product_price = [doc["price"] for doc in products.find({"_id": id_product}, {"price": 1, "_id": 0})]
-
-somar = round(
-    product_price["price"] if isinstance(product_price, dict) else sum(p if isinstance(p, float) else p["price"] for p in product_price), 
-    2
-)
 
 orders_data = [
     {
-        "client_id": random.choice(users_id),
+        #"client_id": random.choice(users_id),
         "date": datetime.combine(fake.date_this_year(), datetime.min.time()),
-        "product_id": id_product,
-        "product_name": product_name,
-        "product_price": product_price,
-        "total": somar
+        "product_id": (id_product := random.choice(all_product_id)),
+        "product_name": (product_name:=[doc["name"] for doc in products.find({"_id": id_product}, {"name": 1, "_id": 0})]),
+        "product_price": (product_price:=[doc["price"] for doc in products.find({"_id": id_product}, {"price": 1, "_id": 0})]),
+        "total": round(product_price["price"] if isinstance(product_price, dict) else sum(p if isinstance(p, float) else p["price"] for p in product_price), 2)
     }
     for i in range(200)
 ]
